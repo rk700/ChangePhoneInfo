@@ -11,7 +11,7 @@ public class Hook_Location_getLongitude {
     public static String methodName = "getLongitude";
     public static String methodSig = "()D";
     public static double hook(Object thiz) {
-        Log.w("YAHFA", "Location getLongitude hooked");
+        Log.i("YAHFA", "Location getLongitude hooked");
         return 22.0;
     }
 }

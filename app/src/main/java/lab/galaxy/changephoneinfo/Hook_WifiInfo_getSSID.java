@@ -11,7 +11,7 @@ public class Hook_WifiInfo_getSSID {
     public static String methodName = "getSSID";
     public static String methodSig = "()Ljava/lang/String;";
     public static String hook(Object thiz) {
-        Log.w("YAHFA", "WifiInfo getSSID hooked");
+        Log.i("YAHFA", "WifiInfo getSSID hooked");
         return "666";
     }
 }

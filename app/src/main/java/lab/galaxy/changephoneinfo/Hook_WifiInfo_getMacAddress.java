@@ -11,7 +11,7 @@ public class Hook_WifiInfo_getMacAddress {
     public static String methodName = "getMacAddress";
     public static String methodSig = "()Ljava/lang/String;";
     public static String hook(Object thiz) {
-        Log.w("YAHFA", "WifiInfo getMacAddress hooked");
+        Log.i("YAHFA", "WifiInfo getMacAddress hooked");
         return "00:22:33:44:55:66";
     }
 }

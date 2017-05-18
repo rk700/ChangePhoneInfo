@@ -11,7 +11,7 @@ public class Hook_GsmCellLocation_getLac {
     public static String methodName = "getLac";
     public static String methodSig = "()I";
     public static int hook(Object thiz) {
-        Log.w("YAHFA", "GsmCellLocation getLac hooked");
+        Log.i("YAHFA", "GsmCellLocation getLac hooked");
         return 123;
     }
 }

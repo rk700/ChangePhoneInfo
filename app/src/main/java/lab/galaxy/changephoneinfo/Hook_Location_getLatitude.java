@@ -11,7 +11,7 @@ public class Hook_Location_getLatitude {
     public static String methodName = "getLatitude";
     public static String methodSig = "()D";
     public static double hook(Object thiz) {
-        Log.w("YAHFA", "Location getLatitude hooked");
+        Log.i("YAHFA", "Location getLatitude hooked");
         return 11.0;
     }
 }

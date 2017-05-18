@@ -11,7 +11,7 @@ public class Hook_WifiInfo_getIpAddress {
     public static String methodName = "getIpAddress";
     public static String methodSig = "()I";
     public static int hook(Object thiz) {
-        Log.w("YAHFA", "WifiInfo getIpAddress hooked");
+        Log.i("YAHFA", "WifiInfo getIpAddress hooked");
         return 666;
     }
 }

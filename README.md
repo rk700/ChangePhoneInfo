@@ -21,6 +21,14 @@ Currently the following methods are hooked:
 - android.net.wifi.WifiInfo.getIpAddress()
 - android.net.wifi.WifiInfo.getMacAddress()
 
+And these system property values are changed as well:
+
+- ro.serialno
+- ro.product.brand
+- ro.product.device
+- ro.build.tags
+- ro.product.model
+- ro.product.manufacturer
 
 # Usage
 Build and push the output apk to `/sdcard/io.virtualhook/patch.apk`. Then add and start applications in VirtualHook.

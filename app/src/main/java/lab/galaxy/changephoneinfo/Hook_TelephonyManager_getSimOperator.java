@@ -11,7 +11,7 @@ public class Hook_TelephonyManager_getSimOperator {
     public static String methodName = "getSimOperator";
     public static String methodSig = "()Ljava/lang/String;";
     public static String hook(Object thiz) {
-        Log.w("YAHFA", "TelephonyManager getSimOperator hooked");
+        Log.i("YAHFA", "TelephonyManager getSimOperator hooked");
         return "12345";
     }
 }

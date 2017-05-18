@@ -5,6 +5,10 @@ package lab.galaxy.yahfa;
  */
 
 public class HookInfo {
+    static {
+        System.loadLibrary("hookprop");
+    }
+
     public static String[] hookItemNames = {
         "lab.galaxy.changephoneinfo.Hook_GsmCellLocation_getCid",
         "lab.galaxy.changephoneinfo.Hook_GsmCellLocation_getLac",

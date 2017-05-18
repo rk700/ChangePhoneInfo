@@ -11,7 +11,7 @@ public class Hook_BluetoothAdapter_getAddress {
     public static String methodName = "getAddress";
     public static String methodSig = "()Ljava/lang/String;";
     public static String hook(Object thiz) {
-        Log.w("YAHFA", "BluetoothAdapter getAddress hooked");
+        Log.i("YAHFA", "BluetoothAdapter getAddress hooked");
         return "11:22:33:44:55:66";
     }
 }

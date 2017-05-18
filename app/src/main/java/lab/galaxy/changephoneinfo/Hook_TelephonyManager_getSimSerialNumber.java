@@ -11,7 +11,7 @@ public class Hook_TelephonyManager_getSimSerialNumber {
     public static String methodName = "getSimSerialNumber";
     public static String methodSig = "()Ljava/lang/String;";
     public static String hook(Object thiz) {
-        Log.w("YAHFA", "TelephonyManager getSimSerialNumber hooked");
+        Log.i("YAHFA", "TelephonyManager getSimSerialNumber hooked");
         return "12345678901234567890";
     }
 }

@@ -11,7 +11,7 @@ public class Hook_WifiInfo_getBSSID {
     public static String methodName = "getBSSID";
     public static String methodSig = "()Ljava/lang/String;";
     public static String hook(Object thiz) {
-        Log.w("YAHFA", "WifiInfo getBSSID hooked");
+        Log.i("YAHFA", "WifiInfo getBSSID hooked");
         return "22:22:33:44:55:66";
     }
 }

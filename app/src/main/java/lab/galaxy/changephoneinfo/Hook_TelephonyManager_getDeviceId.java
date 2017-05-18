@@ -11,7 +11,7 @@ public class Hook_TelephonyManager_getDeviceId {
     public static String methodName = "getDeviceId";
     public static String methodSig = "()Ljava/lang/String;";
     public static String hook(Object thiz) {
-        Log.w("YAHFA", "TelephonyManager getDeviceId hooked");
+        Log.i("YAHFA", "TelephonyManager getDeviceId hooked");
         return "123456789012345";
     }
 }
