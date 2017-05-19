@@ -10,11 +10,11 @@
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
 
 typedef void (*MSHookType)(void *symbol, void *replace, void **result);
-typedef void *(*propertyFindType)(const char *name);
-typedef int (*propertyReadType)(const void *pi, char *name, char *value);
+//typedef void *(*propertyFindType)(const char *name);
+//typedef int (*propertyReadType)(const void *pi, char *name, char *value);
 
-static propertyFindType propertyFind;
-static propertyReadType propertyRead;
+//static propertyFindType propertyFind;
+//static propertyReadType propertyRead;
 
 typedef struct {
     const char *key;
@@ -47,8 +47,10 @@ static void *findSymbol(const char *path, const char *symbol) {
     return target;
 }
 
+/*
 // Here I have to implement the original method instead of backup
 // See http://rk700.github.io/2017/05/18/x86-inline-hook-mistake/ for reason
+// Update: no longer needed since get_pc_thunk support is added to VirtualHook
 static int origin_property_get(const char *name, char *value) {
     void *pi = propertyFind(name);
     if(pi != NULL) {
@@ -60,6 +62,10 @@ static int origin_property_get(const char *name, char *value) {
         return 0;
     }
 }
+*/
+
+static int (*old_property_get)(const char *name, char *value);
+
 
 static int new_property_get(const char *name, char *value) {
 
@@ -72,7 +78,7 @@ static int new_property_get(const char *name, char *value) {
             return valueLen;
         }
     }
-    return origin_property_get(name, value);
+    return old_property_get(name, value);
 }
 
 
@@ -86,6 +92,7 @@ static void doHook() {
         return;
     }
 
+    /*
     propertyRead = (propertyReadType)findSymbol("libc.so", "__system_property_read");
     propertyFind = (propertyFindType)findSymbol("libc.so", "__system_property_find");
 
@@ -93,8 +100,9 @@ static void doHook() {
         LOGE("cannot find propertyFind and propertyRead: %p, %p", propertyRead, propertyFind);
         return;
     }
+     */
 
-    hookFunc(target, (void *)&new_property_get, NULL);
+    hookFunc(target, (void *)&new_property_get, (void **)&old_property_get);
 }
 
 
