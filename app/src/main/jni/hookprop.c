@@ -30,7 +30,7 @@ static Prop props [] = {
     {"ro.product.manufacturer", "bar"}
 };
 
-int propLen = sizeof(props)/sizeof(Prop);
+static int propLen = sizeof(props)/sizeof(Prop);
 
 static void *findSymbol(const char *path, const char *symbol) {
     void *handle = dlopen(path, RTLD_LAZY);
@@ -88,7 +88,8 @@ static void doHook() {
     hookFunc = findSymbol("libva-native.so", "_ZN5Cydia14MSHookFunctionEPvS0_PS0_");
     void *target = findSymbol("libc.so", "__system_property_get");
     if(!hookFunc || !target) {
-        LOGE("cannot hook __system_property_get");
+        LOGE("cannot hook __system_property_get: MSHookFunction %p, __system_property_get %p",
+             hookFunc, target);
         return;
     }
 
