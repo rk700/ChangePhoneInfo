@@ -1,5 +1,9 @@
 package lab.galaxy.yahfa;
 
+import android.os.Build;
+
+import java.lang.reflect.Field;
+
 /**
  * Created by liuruikai756 on 17/05/2017.
  */
@@ -7,6 +11,17 @@ package lab.galaxy.yahfa;
 public class HookInfo {
     static {
         System.loadLibrary("hookprop");
+
+        try {
+            // change Build.SERIAL
+            Class build = Build.class;
+            Field serial = build.getDeclaredField("SERIAL");
+            serial.setAccessible(true);
+            serial.set(null, "0123456789");
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static String[] hookItemNames = {
