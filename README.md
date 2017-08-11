@@ -33,4 +33,4 @@ And these system property values are changed as well by hooking native function 
 Finally, `Build.SERIAL` is changed by simple Java reflection.
 
 # Usage
-Build and push the output apk to `/sdcard/io.virtualhook/patch.apk`. Then add and start applications in VirtualHook.
+Build and push the apk to `/sdcard/`. Then add the hook plugin and start applications in VirtualHook.
